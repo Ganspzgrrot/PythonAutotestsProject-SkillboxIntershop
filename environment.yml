@@ -1,0 +1,12 @@
+name: python_autotest_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - pytest
+  - selenium
+  - pip
+  - pip:
+    - webdriver-manager
+    - allure-pytest

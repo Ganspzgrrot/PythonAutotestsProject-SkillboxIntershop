@@ -1,0 +1,13 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
+def wait_css(driver, locator, timeout=10):
+    wait = WebDriverWait(driver, timeout)
+    result = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, locator)))
+    return result
+
+def wait_css_elements(driver, locator, timeout=10):
+    wait = WebDriverWait(driver, timeout)
+    result = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator)))
+    return result
