@@ -1,14 +1,14 @@
 import pytest
 import sys
+import os
 
 if __name__ == "__main__":
-    print("Запуск автоматических тестов Selenium....")
     args = [
         "-v",
         "-s",
-        "tests"
+        "tests",
+        "--alluredir=results"
     ]
     exit_code = pytest.main(args)
-    print(f"Тестирование завершено с кодом: {exit_code}")
-
+    os.system("allure serve results")
     sys.exit(exit_code)
