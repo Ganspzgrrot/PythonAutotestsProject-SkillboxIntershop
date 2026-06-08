@@ -12,4 +12,3 @@ if __name__ == "__main__":
     print(f"Тестирование завершено с кодом: {exit_code}")
 
     sys.exit(exit_code)
-    s = input('Нажмите ENTER, чтобы выйти')
