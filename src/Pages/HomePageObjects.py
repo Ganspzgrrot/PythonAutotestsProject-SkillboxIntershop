@@ -31,13 +31,14 @@ class HomePageObjects:
             "https://intershop4.skillbox.ru/cart/", "https://intershop4.skillbox.ru/my-account/",
             "https://intershop4.skillbox.ru/cart/", "https://intershop4.skillbox.ru/register/"
         ]
-    #Запуск браузера:
+
+    #1-Запуск браузера:
     def open(self):
         with allure.step('Открыть главную страницу пиццерии https://pizzeria.skillbox.cc'):
             self.driver.get(self.MAIN_PAGE_URL)
     def max_win(self):
         self.driver.maximize_window()
-    #Кликабельность и валидация всех промоакций в верху главной странице сайта интершоп4:
+    #2-Кликабельность и валидация всех промоакций в верху главной странице сайта интершоп4:
     def click_and_validate_promotions_books(self):
         previous_url = self.driver.current_url
         wait_xpath_element(self.driver, self.PROMOTIONS_BOOKS).click()
@@ -55,7 +56,7 @@ class HomePageObjects:
         wait_xpath_element(self.driver, self.PROMOTIONS_CAMERAS).click()
         cur_url = self.driver.current_url
         assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[2]
-    #Кликабельность и валидация всех ссылок в подвале сайта:
+    #3-Кликабельность и валидация всех ссылок в подвале сайта:
     def click_and_validate_AllProducts_link(self):
         previous_url = self.driver.current_url
         wait_xpath_element(self.driver, self.ALL_PRODUCTS_LINK).click()
