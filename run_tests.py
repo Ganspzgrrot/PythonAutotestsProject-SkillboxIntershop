@@ -1,11 +1,15 @@
 import pytest
-import os
+import sys
 
 if __name__ == "__main__":
     print("Запуск автоматических тестов Selenium....")
     args = [
         "-v",
-        "-s"
+        "-s",
+        "tests"
     ]
     exit_code = pytest.main(args)
-    print(self:=f"Тестирование завершено с кодом: {exit_code}")
+    print(f"Тестирование завершено с кодом: {exit_code}")
+
+    sys.exit(exit_code)
+    s = input('Нажмите ENTER, чтобы выйти')
