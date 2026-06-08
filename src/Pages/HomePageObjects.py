@@ -40,54 +40,72 @@ class HomePageObjects:
         self.driver.maximize_window()
     #2-Кликабельность и валидация всех промоакций в верху главной странице сайта интершоп4:
     def click_and_validate_promotions_books(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.PROMOTIONS_BOOKS).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[0]
-        self.driver.get(self.MAIN_PAGE_URL)
+        with allure.step('Нажать на промоакции "Книги"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.PROMOTIONS_BOOKS).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует промоакции и убедиться, что URL изменился от перехода на промоакцию'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[0]
+            self.driver.get(self.MAIN_PAGE_URL)
     def click_and_validate_promotions_pads(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.PROMOTIONS_PADS).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[1]
-        self.driver.get(self.MAIN_PAGE_URL)
+        with allure.step('Нажать на промоакции "Планшеты"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.PROMOTIONS_PADS).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует промоакции и убедиться, что URL изменился от перехода по ссылке'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[1]
+            self.driver.get(self.MAIN_PAGE_URL)
     def click_and_validate_promotions_cameras(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.PROMOTIONS_CAMERAS).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[2]
+        with allure.step('Нажать на промоакции "Фотоаппараты"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.PROMOTIONS_CAMERAS).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует промоакции и убедиться, что URL изменился от перехода по ссылке'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[2]
     #3-Кликабельность и валидация всех ссылок в подвале сайта:
     def click_and_validate_AllProducts_link(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.ALL_PRODUCTS_LINK).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[0]
-        self.driver.get(self.MAIN_PAGE_URL)
+        with allure.step('Нажать на ссылку "Все товары"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.ALL_PRODUCTS_LINK).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует ссылке и убедиться, что URL изменился от перехода по ссылке'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[0]
+            self.driver.get(self.MAIN_PAGE_URL)
     def click_and_validate_MainPage_link(self):
-        wait_xpath_element(self.driver, self.MAIN_PAGE_LINK).click()
-        cur_url = self.driver.current_url
-        assert cur_url == self.CORRECT_URL_LINKS[1]
+        with allure.step('Нажать на ссылку "Главная"'):
+            wait_xpath_element(self.driver, self.MAIN_PAGE_LINK).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует ссылке и убедиться, что URL изменился от перехода по ссылке'):
+            assert cur_url == self.CORRECT_URL_LINKS[1]
     def click_and_validate_Cart_link(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.CART_LINK).click()
-        cur_url = self.driver.current_url
-        assert previous_url != cur_url and cur_url == self.CORRECT_URL_LINKS[2]
-        self.driver.get(self.MAIN_PAGE_URL)
+        with allure.step('Нажать на ссылку "Корзина"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.CART_LINK).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует ссылке и убедиться, что URL изменился от перехода по ссылке'):
+            assert previous_url != cur_url and cur_url == self.CORRECT_URL_LINKS[2]
+            self.driver.get(self.MAIN_PAGE_URL)
     def click_and_validate_MyAccount_link(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.MY_ACCOUNT_LINK).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[3]
-        self.driver.get(self.MAIN_PAGE_URL)
+        with allure.step('Нажать на ссылку "Мой аккаунт"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.MY_ACCOUNT_LINK).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует ссылке и убедиться, что URL изменился от перехода по ссылке'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[3]
+            self.driver.get(self.MAIN_PAGE_URL)
     def click_and_validate_PlacingOrder_link(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.PLACING_ORDER_LINK).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[4]
-        self.driver.get(self.MAIN_PAGE_URL)
+        with allure.step('Нажать на ссылку "Оформление заказа"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.PLACING_ORDER_LINK).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует ссылке и убедиться, что URL изменился от перехода по ссылке'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[4]
+            self.driver.get(self.MAIN_PAGE_URL)
     def click_and_validate_Registration_link(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.REGISTRATION_LINK).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[5]
-        self.driver.get(self.MAIN_PAGE_URL)
+        with allure.step('Нажать на промоакции "Фотоаппараты"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.REGISTRATION_LINK).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL ссылке промоакции и убедиться, что URL изменился от перехода по ссылке'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_LINKS[5]
+            self.driver.get(self.MAIN_PAGE_URL)

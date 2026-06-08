@@ -30,25 +30,35 @@ class NavigationMenuObjects:
         self.driver.maximize_window()
     #2-Кликабельность и валидация всех элементов в навигационном меню:
     def click_and_validate_MainItem(self):
-        wait_xpath_element(self.driver, self.ITEM_MAIN).click()
-        cur_url = self.driver.current_url
-        assert cur_url == self.CORRECT_URL_LIST[0]
+        with allure.step('В навигационном меню нажать пункт "Главная"'):
+            wait_xpath_element(self.driver, self.ITEM_MAIN).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует пункту и убедиться, что URL изменился от перехода по пункту'):
+            assert cur_url == self.CORRECT_URL_LIST[0]
     def click_and_validate_Catalog(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.ITEM_CATALOG).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_LIST[1]
+        with allure.step('В навигационном меню нажать пункт "Каталог"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.ITEM_CATALOG).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует пункту и убедиться, что URL изменился от перехода по пункту'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_LIST[1]
     def click_and_validate_MyAccount(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.ITEM_MY_ACCOUNT).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_LIST[2]
+        with allure.step('В навигационном меню нажать пункт "Мой аккаунт"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.ITEM_MY_ACCOUNT).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует пункту и убедиться, что URL изменился от перехода по пункту'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_LIST[2]
     def click_and_validate_Cart(self):
-        previous_url = self.driver.current_url
-        wait_xpath_element(self.driver, self.ITEM_CART).click()
-        cur_url = self.driver.current_url
-        assert cur_url != previous_url and cur_url == self.CORRECT_URL_LIST[3]
+        with allure.step('В навигационном меню нажать пункт "Корзина"'):
+            previous_url = self.driver.current_url
+            wait_xpath_element(self.driver, self.ITEM_CART).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует пункту и убедиться, что URL изменился от перехода по пункту'):
+            assert cur_url != previous_url and cur_url == self.CORRECT_URL_LIST[3]
     def click_and_validate_PlaceOrder(self):
-        wait_xpath_element(self.driver, self.ITEM_PLACE_ORDER).click()
-        cur_url = self.driver.current_url
-        assert cur_url == self.CORRECT_URL_LIST[4]
+        with allure.step('В навигационном меню нажать пункт "Оформление заказа"'):
+            wait_xpath_element(self.driver, self.ITEM_PLACE_ORDER).click()
+            cur_url = self.driver.current_url
+        with allure.step('Проверить, что URL соответствует пункту и убедиться, что URL изменился от перехода по пункту'):
+            assert cur_url == self.CORRECT_URL_LIST[4]
