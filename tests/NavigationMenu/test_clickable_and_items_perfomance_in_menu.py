@@ -1,6 +1,10 @@
+import allure
 from src.Pages.NavigationMenuObjects import NavigationMenuObjects
 
+@allure.feature("Главная страница")
 class TestClickabilityAndLink:
+    @allure.story("Навигационное меню")
+    @allure.title("Кликабельность и работоспособность всех пунктов")
     def test_clickability_of_links(self, driver):
         navigation_menu = NavigationMenuObjects(driver)
         navigation_menu.open()
