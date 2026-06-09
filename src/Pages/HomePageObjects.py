@@ -2,6 +2,8 @@ import allure
 import logging.config
 import logging
 from src.SupportFunctions.WaitFunctions.wait_until_on_xpath import wait_xpath_element
+from selenium.webdriver.common.action_chains import ActionChains
+import time
 
 class HomePageObjects:
     def __init__(self, driver):
@@ -68,8 +70,12 @@ class HomePageObjects:
         with allure.step('Проверить, что URL соответствует промоакции и убедиться, что URL изменился от перехода по ссылке'):
             assert cur_url != previous_url and cur_url == self.CORRECT_URL_PROMOTIONS[2]
     def click_and_validate_promotion_already_in_sale(self):
+        actions = ActionChains(self.driver)
         with allure.step('На главной странице нажать на карточку промоакции "Уже в продаже"'):
             previous_url = self.driver.current_url
+            for i in range(60):
+                actions.scroll_by_amount(0, 10).perform()
+                time.sleep(0.00001)
             wait_xpath_element(self.driver, self.VIEW_PRODUCT_BUTTON).click()
             validate_text = wait_xpath_element(self.driver, self.PRODUCT_IPAD_TEXT).text
             cur_url = self.driver.current_url
