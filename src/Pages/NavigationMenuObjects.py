@@ -1,8 +1,4 @@
-from sys import prefix
-
 import allure
-import logging.config
-import logging
 from src.SupportFunctions.WaitFunctions.wait_until_on_xpath import wait_xpath_element
 
 class NavigationMenuObjects:

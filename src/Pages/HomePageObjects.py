@@ -1,6 +1,4 @@
 import allure
-import logging.config
-import logging
 from src.SupportFunctions.WaitFunctions.wait_until_on_xpath import wait_xpath_element
 from selenium.webdriver.common.action_chains import ActionChains
 import time
