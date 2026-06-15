@@ -39,7 +39,7 @@ class HomePageObjects:
 
     #1-Запуск браузера:
     def open(self):
-        with allure.step('Открыть главную страницу пиццерии https://pizzeria.skillbox.cc'):
+        with allure.step('Открыть главную страницу intershop4 https://intershop4.skillbox.ru'):
             self.driver.get(self.MAIN_PAGE_URL)
     def max_win(self):
         self.driver.maximize_window()

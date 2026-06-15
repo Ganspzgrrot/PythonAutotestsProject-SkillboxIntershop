@@ -22,6 +22,8 @@ class CartObjects:
         self.COUPON_FIELD = "//input[@id='coupon_code']"
         #Текста для валидации:
         self.VALIDATION_TEXT = "//div[@role='alert']"
+        self.FINALLY_SUMM_TEXT = "//tr[@class='order-total']//bdi[1]"
+        self.DISCOUNT_TEXT = "(//span[@class='woocommerce-Price-amount amount'])[3]"
         #4-Элементы карточки товара:
         #Кнопки
         self.ADD_TO_CART_BUTTON = "//button[contains(text(),'В корзину')]"
@@ -32,7 +34,7 @@ class CartObjects:
 
     #1-Запуск браузера:
     def open(self):
-        with allure.step('Открыть главную страницу пиццерии https://pizzeria.skillbox.cc'):
+        with allure.step('Открыть главную страницу intershop https://intershop4.skillbox.ru'):
             self.driver.get(self.MAIN_PAGE_URL)
     def max_win(self):
         self.driver.maximize_window()
@@ -57,8 +59,8 @@ class CartObjects:
             wait_xpath_element(self.driver, reg_page_items.PASSWORD_FIELD).send_keys('1234567890-')
             wait_xpath_element(self.driver, reg_page_items.REGISTER_BUTTON).click()
 
-        with allure.step('По URL перейти на товар "polo"'):
-            self.driver.get(self.POLO_JEANS_URL)
+        with allure.step('По URL перейти на товар "iPad 2020 32GB wi-fi"'):
+            self.driver.get(self.IPAD_URL)
         with allure.step('Добавить товар в корзину: '):
             wait_xpath_element(self.driver, self.ADD_TO_CART_BUTTON).click()
         with allure.step('В навигационном меню нажать пункт "КОРЗИНА" и перейти в корзину'):
